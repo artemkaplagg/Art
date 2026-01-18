@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Гаманець</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Шапка з балансом -->
+        <div class="header">
+            <div class="header-gradient"></div>
+            <div class="wallet-header">
+                <div class="wallet-icon">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                        <circle cx="30" cy="30" r="28" fill="url(#gradient1)" opacity="0.2"/>
+                        <path d="M30 15L40 25L30 35L20 25L30 15Z" fill="white"/>
+                        <path d="M30 25L40 35L30 45L20 35L30 25Z" fill="white" opacity="0.6"/>
+                        <defs>
+                            <linearGradient id="gradient1" x1="0" y1="0" x2="60" y2="60">
+                                <stop offset="0%" style="stop-color:#667eea"/>
+                                <stop offset="100%" style="stop-color:#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="wallet-title">Ваш Гаманець</h1>
+                <div class="balance-container">
+                    <div class="balance-label">В гаманці:</div>
+                    <div class="balance-amount">
+                        <span id="balance">0</span>
+                        <span class="star-icon">⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Швидкі дії -->
+        <div class="quick-actions">
+            <button class="action-btn" onclick="openShop()">
+                <div class="action-icon">🛒</div>
+                <div class="action-text">Поповнити</div>
+            </button>
+            <button class="action-btn" onclick="withdraw()">
+                <div class="action-icon">💸</div>
+                <div class="action-text">Вивести</div>
+            </button>
+            <button class="action-btn" onclick="createCheck()">
+                <div class="action-icon">🎁</div>
+                <div class="action-text">Створити чек</div>
+            </button>
+            <button class="action-btn" onclick="showHistory()">
+                <div class="action-icon">📊</div>
+                <div class="action-text">Історія</div>
+            </button>
+        </div>
+
+        <!-- Реферальний блок -->
+        <div class="referral-card">
+            <div class="referral-header">
+                <span class="referral-icon">👥</span>
+                <span class="referral-title">Реферальна програма</span>
+            </div>
+            <div class="referral-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="referralCount">0</div>
+                    <div class="stat-label">Запрошено</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-value" id="referralEarnings">0 ⭐</div>
+                    <div class="stat-label">Зароблено</div>
+                </div>
+            </div>
+            <button class="referral-btn" onclick="shareReferral()">
+                <span>📤 Поділитись посиланням</span>
+            </button>
+        </div>
+
+        <!-- Останні транзакції -->
+        <div class="transactions-section">
+            <div class="section-header">
+                <h2>Останні операції</h2>
+                <button class="view-all-btn" onclick="showHistory()">Всі</button>
+            </div>
+            <div id="transactionsList" class="transactions-list">
+                <!-- Транзакції будуть додані динамічно -->
+                <div class="empty-state">
+                    <div class="empty-icon">📭</div>
+                    <div class="empty-text">Поки що немає операцій</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Інформаційна картка про Business Connection -->
+        <div class="info-card">
+            <div class="info-header">
+                <span class="info-icon">🔗</span>
+                <span class="info-title">Підключення бізнес-аккаунту</span>
+            </div>
+            <div class="info-content">
+                <p>Підключіть свій бізнес-аккаунт Telegram для автоматичного збору та конвертації подарунків у зірки!</p>
+                <div id="connectionStatus" class="connection-status">
+                    <span class="status-badge disconnected">Не підключено</span>
+                </div>
+            </div>
+            <button class="connect-btn" onclick="connectBusiness()">
+                <span>⚡ Підключити аккаунт</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
