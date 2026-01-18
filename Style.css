@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --tg-theme-bg-color: #1a1a2e;
+    --tg-theme-text-color: #ffffff;
+    --tg-theme-hint-color: #aaaaaa;
+    --tg-theme-link-color: #667eea;
+    --tg-theme-button-color: #667eea;
+    --tg-theme-button-text-color: #ffffff;
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    overflow-x: hidden;
+    padding-bottom: 20px;
+}
+
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Шапка */
+.header {
+    position: relative;
+    background: var(--primary-gradient);
+    border-radius: 0 0 30px 30px;
+    padding: 30px 20px 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.header-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.wallet-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.wallet-icon {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.wallet-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.balance-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.balance-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.balance-amount {
+    font-size: 42px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.star-icon {
+    font-size: 36px;
+}
+
+/* Швидкі дії */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+.action-icon {
+    font-size: 28px;
+}
+
+.action-text {
+    font-size: 12px;
+    text-align: center;
+    color: var(--tg-theme-hint-color);
+}
+
+/* Реферальна картка */
+.referral-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 20px 20px;
+}
+
+.referral-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.referral-icon {
+    font-size: 24px;
+}
+
+.referral-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.referral-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--tg-theme-hint-color);
+}
+
+.stat-divider {
+    width: 1px;
+    background: var(--card-border);
+}
+
+.referral-btn {
+    width: 100%;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.referral-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Транзакції */
+.transactions-section {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.view-all-btn {
+    background: none;
+    border: none;
+    color: var(--tg-theme-link-color);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.transactions-list {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.transaction-title {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.transaction-date {
+    font-size: 12px;
+    color: var(--tg-theme-hint-color);
+}
+
+.transaction-amount {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.transaction-amount.positive {
+    color: #4caf50;
+}
+
+.transaction-amount.negative {
+    color: #f44336;
+}
+
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.empty-text {
+    color: var(--tg-theme-hint-color);
+    font-size: 14px;
+}
+
+/* Інформаційна картка */
+.info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 20px 20px;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.info-icon {
+    font-size: 24px;
+}
+
+.info-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.info-content {
+    margin-bottom: 15px;
+}
+
+.info-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--tg-theme-hint-color);
+    margin-bottom: 12px;
+}
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.connected {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+.status-badge.disconnected {
+    background: rgba(158, 158, 158, 0.2);
+    color: #9e9e9e;
+}
+
+.connect-btn {
+    width: 100%;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.connect-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Адаптивність */
+@media (max-width: 400px) {
+    .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    
+    .action-btn {
+        padding: 12px 8px;
+    }
+    
+    .action-icon {
+        font-size: 24px;
+    }
+    
+    .action-text {
+        font-size: 11px;
+    }
+}
